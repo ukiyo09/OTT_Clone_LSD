@@ -1,0 +1,430 @@
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #141414;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #e5e5e5;
+}
+
+a h3:hover {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    min-width: 1050px;
+    min-height: 100%;
+    background-color: transparent;
+}
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+.signInContainer {
+    position: fixed;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+}
+
+.column {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 450px;
+    max-height: 100%;
+    border: 2px solid #dedede;
+    border-radius: 10px;
+    box-shadow: rgba(72, 194, 249, 0.781) 0 15px 25px;
+    padding: 10px 35px;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.column form {
+    display: flex;
+    flex-direction: column;
+}
+
+.column form input[type="text"],
+.column form input[type="email"],
+.column form input[type="password"] {
+    font-size: 14px;
+    margin: 10px 0;
+    border: none;
+    color: white;
+    border-bottom: 1px solid #dedede;
+    background-color: transparent;
+}
+
+::placeholder {
+    color: #dedede;
+}
+
+.column form input[type="text"]:focus,
+.column form input[type="email"]:focus,
+.column form input[type="password"]:focus {
+    box-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.column form input[type="submit"] {
+    background-color: #4285f4;
+    color: #fff;
+    height: 34px;
+    width: 84px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.column form input[type="submit"]:hover {
+    background-color: #dedede;
+    color: #4285f4;
+    box-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.column .header {
+    padding: 15px 0;
+}
+
+.column h3 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0;
+    padding-top: 12px;
+    color: white;
+}
+
+.column .header span {
+    font-size: 14px;
+    color: white;
+}
+
+.column a {
+    color: #fff;
+}
+
+.column .header img {
+    width: 100px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+.signInMessage {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.signInMessage:hover {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.errorMessage {
+    color: #f00;
+    font-size: 14px;
+    font-weight: 10px;
+    text-align: left;
+}
+
+.previewImage, 
+.previewVideo {
+    width: 100%;
+}
+
+.previewContainer {
+    position: relative;
+    display: flex;
+}
+
+.previewContainer.small {
+    width: 300px;
+    height: 169px;
+    margin-right: 4px;
+    display: inline-flex;
+}
+
+.previewConatiner.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    margin-bottom: 0px;
+}
+
+.previewOverlay .mainDetails h3 {
+    color: white;
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.previewOverlay .mainDetails {
+    position: relative;
+    top: 35%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDetails button {
+    background-color: rgba(51, 51, 51, 0.4);
+    color: white;
+    border: none;
+    min-width: 150px;
+    padding: 0 38px;
+    height: 50px;
+    max-height: 50px;
+    font-size: 18px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+button i {
+    color: inherit;
+}
+
+.mainDetails button:hover {
+    background-color: #e6e6e6;
+    color: #000;
+    box-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.entities,
+.videos {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.previewCategories {
+    padding: 0 50px;
+}
+
+.previewCategories.noScroll .entities {
+    white-space: normal;
+}
+
+.errorBanner {
+    color: white;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.season {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+}
+
+.episodeContainer {
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 4px;
+    padding: 3px;
+}
+
+.episodeContainer:hover {
+    background-color: rgba(102, 100, 100, 0.863);
+}
+
+.episodeContainer .contents {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.episodeContainer img {
+    width: 300px;
+    height: 169px;
+    object-fit: cover;
+}
+
+.episodeContainer .videoInfo h4,
+.episodeContainer .videoInfo span {
+    color: white;
+    width: 100%;
+    white-space: normal;
+}
+
+.episodeContainer .videoInfo {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.watchContainer video {
+    width: 81%;
+}
+
+.videoControls.watchNav{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.videoControls button {
+    font-size: 40px;
+    padding: 30px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.videoControls h1 {
+    color:#fff;
+    padding-right: 20px;
+}
+
+.topBar{
+    position: fixed;
+    width: 100%;
+    z-index: 2; 
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    height: 70px;
+    box-sizing: border-box;
+    min-width: 1050px;
+    transition: background-color 200ms linear;
+}
+
+.topBar.scrolled{
+    background-color: #141414;
+    transition: background-color 200ms linear;
+}
+
+.logoContainer {
+    height: 60px;
+    width: 80px;
+}
+
+.logoContainer img {
+    height: 100%;
+}
+
+.navLinks{
+    display: flex;
+    list-style: none;
+
+}
+
+.navLinks a{
+    color: #fff;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.navLinks a:hover {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.rightItems{
+    text-align: right;
+    flex: 1;
+}
+
+.rightItems i{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.rightItems i:hover {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
+
+.previewCategories h1 {
+    color: #e5e5e5;
+}
+
+.textBoxContainer {
+    padding: 100px 50px;
+}
+
+.searchInput {
+    height: 50px;
+    width: 680px;
+    border: 1px solid #dedede;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.searchInput:focus {
+    box-shadow: 0 0 5px #fff,
+    0 0 10px #1575C5,
+    0 0 20px #1575C5,
+    0 0 30px #1575C5,
+    0 0 40px #1575C5;
+}
